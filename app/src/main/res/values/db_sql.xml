@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <String name="db_name">note</String>
+    <String name="db_version">1</String>
+    <array name="tables">
+        <item></item>
+    </array>
+</resources>
