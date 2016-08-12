@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <String name="db_name">note</String>
-    <String name="db_version">1</String>
-    <array name="tables">
-        <item></item>
-    </array>
+    <string name="db_name">note</string>
+    <string name="db_version">1</string>
+    <string-array name="database_tables">
+        <item>com.example.lizhongli.note.model.NoteVO</item>
+    </string-array>
+    <string name="db_sql">
+        CREATE TABLE IF NOTE EXISTS "TAB_NOTE"{
+            ID VARCHAR2(50),
+            TITLE VARCHAR2(100),
+            CONTENT VARCHAR2(500),
+            CREATE_TIME DATETIME,
+            UPDATE_TIME DATETIME,
+            PRIMARY KEY ("ID")
+        };
+    </string>
 </resources>
