@@ -8,7 +8,6 @@ import android.content.Context;
  */
 public class BaseApplication extends Application {
 
-    static DBHelper dbHelper = null;
     static Context context;
 
 
@@ -19,12 +18,6 @@ public class BaseApplication extends Application {
 
     }
 
-    public static synchronized DBHelper getDBHelper(){
-        if(null == dbHelper){
-            dbHelper = new DBHelper(context);
-        }
-        return dbHelper;
-    }
 
 
 }

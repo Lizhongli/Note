@@ -1,15 +1,28 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <Button
+        android:id="@+id/btn_addTest"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="插入测试数据" />
+    <Button
+        android:id="@+id/btn_readTest"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="读取测试数据" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/tv_num"
+        android:text="数据总数量为:"
+        android:gravity="center"/>
 
     <ListView
         android:id="@+id/lv_note"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-</FrameLayout>
+        android:layout_height="wrap_content" />
+</LinearLayout>
