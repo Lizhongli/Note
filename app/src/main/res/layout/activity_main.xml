@@ -1,72 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.lizhongli.note.MainActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
     <LinearLayout
+        android:id="@+id/ly_bottom"
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
+        android:layout_height="51dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        android:id="@+id/ly_bottom">
+        android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/rl_tab1"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#B3B3B3"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Tab1" />
-        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="#F8F8F8"
+            android:orientation="horizontal"
+            android:weightSum="4">
 
-        <RelativeLayout
-            android:id="@+id/rl_tab2"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1">
+            <RelativeLayout
+                android:id="@+id/rl_tab1"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Tab2" />
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Tab1"/>
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/rl_tab3"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1">
+            <RelativeLayout
+                android:id="@+id/rl_tab2"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Tab3" />
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Tab2"/>
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/rl_tab4"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1">
+            <RelativeLayout
+                android:id="@+id/rl_tab3"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Tab4" />
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Tab3"/>
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/rl_tab4"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Tab4"/>
+            </RelativeLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
 

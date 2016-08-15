@@ -15,7 +15,9 @@ import android.widget.TextView;
 import com.example.lizhongli.note.R;
 import com.example.lizhongli.note.base.BaseFragment;
 import com.example.lizhongli.note.dao.NoteDAO;
+import com.example.lizhongli.note.dao.NoteOrmliteDAO;
 
+import java.sql.SQLException;
 
 
 public class Fragment1 extends BaseFragment implements View.OnClickListener{
@@ -23,7 +25,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener{
     ListView lv_note ;
     Button btn_addTest;
     Button btn_readTest;
-    NoteDAO noteDAO;
+    NoteOrmliteDAO noteDAO;
     TextView tv_num;
     Handler handler = new Handler();
     @Override
@@ -41,7 +43,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener{
         btn_readTest = (Button) view.findViewById(R.id.btn_readTest);
         btn_readTest.setOnClickListener(this);
         tv_num = (TextView) view.findViewById(R.id.tv_num);
-        noteDAO = new NoteDAO(getActivity());
+        noteDAO = new NoteOrmliteDAO(getActivity());
     }
 
 
@@ -76,13 +78,18 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener{
         new Thread(){
             @Override
             public void run() {
-                final int num = noteDAO.getCount();
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        tv_num.setText("数据总数为:"+num);
-                    }
-                });
+                try {
+                    final long num = noteDAO.countOf();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            tv_num.setText("数据总数为:"+String.valueOf(num));
+                        }
+                    });
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
             }
         }.start();
     }

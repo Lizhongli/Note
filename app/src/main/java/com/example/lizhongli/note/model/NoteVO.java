@@ -6,8 +6,8 @@ import com.j256.ormlite.table.DatabaseTable;
 /**
  * Created by lizhongli on 2016/8/1.
  */
-@DatabaseTable(tableName = "NOTE")
-public class NoteVO {
+@DatabaseTable(tableName = "TAB_NOTE")
+public class NoteVO extends BaseVO{
 
     @DatabaseField(columnName = "NOTE_ID", canBeNull = false, id = true)
     private String noteId;
