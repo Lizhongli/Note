@@ -17,9 +17,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 
-public class BaseDAO<T extends BaseVO> {
+public class BaseDao<T extends BaseVO> {
 
-    private static final String TAG = BaseDAO.class.getSimpleName();
+    private static final String TAG = BaseDao.class.getSimpleName();
     protected DBHelperOrmlite dbHelper;
     protected Class<T> entityClass;
 
@@ -57,7 +57,7 @@ public class BaseDAO<T extends BaseVO> {
     }
 
 
-    public BaseDAO(Class<T> entityClass) {
+    public BaseDao(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 

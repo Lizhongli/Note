@@ -3,7 +3,7 @@ package com.example.lizhongli.note.dao;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.lizhongli.note.base.BaseDAO;
+import com.example.lizhongli.note.base.BaseDao;
 import com.example.lizhongli.note.base.DBHelperOrmlite;
 import com.example.lizhongli.note.model.NoteVO;
 import com.j256.ormlite.dao.Dao;
@@ -16,7 +16,7 @@ import java.util.UUID;
 /**
  * Created by lizhongli on 2016/8/15.
  */
-public class NoteOrmliteDAO extends BaseDAO<NoteVO> {
+public class NoteOrmliteDAO extends BaseDao<NoteVO> {
 
     public NoteOrmliteDAO(Context context) {
         super(NoteVO.class);
