@@ -13,21 +13,28 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.lizhongli.note.R;
+import com.example.lizhongli.note.adapter.NoteAdapter;
 import com.example.lizhongli.note.base.BaseFragment;
 import com.example.lizhongli.note.dao.NoteDAO;
 import com.example.lizhongli.note.dao.NoteOrmliteDAO;
+import com.example.lizhongli.note.model.NoteVO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class Fragment1 extends BaseFragment implements View.OnClickListener{
+public class Fragment1 extends BaseFragment implements View.OnClickListener {
 
-    ListView lv_note ;
+    ListView lv_note;
+    NoteAdapter adapter;
+    List<NoteVO> lstVO = new ArrayList<NoteVO>();
     Button btn_addTest;
     Button btn_readTest;
     NoteOrmliteDAO noteDAO;
     TextView tv_num;
     Handler handler = new Handler();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -36,8 +43,10 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener{
         return view;
     }
 
-    public void initView(View view){
+    public void initView(View view) {
         lv_note = (ListView) view.findViewById(R.id.lv_note);
+        adapter = new NoteAdapter(getActivity());
+        lv_note.setAdapter(adapter);
         btn_addTest = (Button) view.findViewById(R.id.btn_addTest);
         btn_addTest.setOnClickListener(this);
         btn_readTest = (Button) view.findViewById(R.id.btn_readTest);
@@ -49,7 +58,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_addTest:
                 addTest();
                 break;
@@ -59,8 +68,8 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener{
         }
     }
 
-    public void addTest(){
-        new Thread(){
+    public void addTest() {
+        new Thread() {
             @Override
             public void run() {
                 noteDAO.addNoteTest();
@@ -74,16 +83,22 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener{
         }.start();
     }
 
-    public void getTestNum(){
-        new Thread(){
+    public void getTestNum() {
+        new Thread() {
             @Override
             public void run() {
                 try {
-                    final long num = noteDAO.countOf();
+                    lstVO.clear();
+                    lstVO = noteDAO.queryForAll();
+                    if (lstVO == null) {
+                        lstVO = new ArrayList<NoteVO>();
+                    }
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            tv_num.setText("数据总数为:"+String.valueOf(num));
+                            tv_num.setText("数据总数为:" + String.valueOf(lstVO.size()));
+                            adapter.setData(lstVO);
+                            adapter.notifyDataSetChanged();
                         }
                     });
                 } catch (SQLException e) {
