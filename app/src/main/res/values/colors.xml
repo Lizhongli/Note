@@ -8,5 +8,6 @@
     <color name="red">#ff0000</color>
     <color name="text_color_title">#333333</color>
     <color name="text_color_minor">#888888</color>
-
+    <color name="divider_line_color">#dcdcdc</color>
+    <color name="title_color">#27B5EE</color>
 </resources>
